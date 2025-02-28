@@ -5298,6 +5298,7 @@ GameObject:
   - component: {fileID: 568190378}
   - component: {fileID: 568190377}
   - component: {fileID: 568190380}
+  - component: {fileID: 568190382}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5404,6 +5405,23 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &568190382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568190376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618b0e3f6c65dd247a4a016150006c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LookSpeedController: 120
+  m_LookSpeedMouse: 4
+  m_MoveSpeed: 10
+  m_MoveSpeedIncrement: 2.5
+  m_Turbo: 10
 --- !u!1001 &573732124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16720,8 +16738,8 @@ Transform:
   - {fileID: 1749347038}
   - {fileID: 1115867495}
   - {fileID: 798351031}
-  - {fileID: 950144279}
   - {fileID: 1882975077}
+  - {fileID: 950144279}
   m_Father: {fileID: 1557670523}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19688,7 +19706,7 @@ Transform:
   - {fileID: 1105027130}
   - {fileID: 1081728774}
   m_Father: {fileID: 1615387548}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1902962032
 PrefabInstance:
