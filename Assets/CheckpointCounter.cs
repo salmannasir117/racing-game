@@ -23,6 +23,7 @@ public class CheckpointCounter : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
+        Debug.Log("hit something");
         // if (other.gameObject.CompareTag("PickUp")) {
         //     other.gameObject.SetActive(false);
         //     count++;
@@ -33,7 +34,9 @@ public class CheckpointCounter : MonoBehaviour
         if (finished) return;
 
         //checkpoint system - check if collision is next checkpoint and do something if not already done the level
-        if (other.gameObject == checkpoints[currentCheckpoint] ) {
+        //check if we hit a checkpoint in the list or the thing we hit is a child of a thing in the list
+        //this allows us to have a more complex checkpoint with a hitbox that we just put into the list
+        if (other.gameObject == checkpoints[currentCheckpoint] || (other.gameObject.transform.parent != null &&  other.gameObject.transform.parent.gameObject == checkpoints[currentCheckpoint])) {
             Debug.Log("hit correct checkpoint number " + currentCheckpoint);
             currentCheckpoint = (currentCheckpoint + 1) % checkpoints.Length;
             
