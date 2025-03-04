@@ -59,15 +59,5 @@ public class PlayerController : MonoBehaviour
         if (movementZ != 0) movementZ = 0;  //reset jump flag
     }
 
-    void OnTriggerEnter(Collider other) {
-        // if (other.gameObject.CompareTag("PickUp")) {
-        //     other.gameObject.SetActive(false);
-        //     count++;
-        //     SetCountText();
-        // }
-        if (other.gameObject == CheckpointCounter.checkpoints[CheckpointCounter.currentCheckpoint]) {
-            Debug.Log("yes");
-            CheckpointCounter.currentCheckpoint = (CheckpointCounter.currentCheckpoint + 1) % CheckpointCounter.checkpoints.Length;
-        }
-    }
+    
 }
