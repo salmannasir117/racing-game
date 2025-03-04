@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0.0f;
-    public TextMeshProUGUI countText;
-    public GameObject winTextObject;
+    // public TextMeshProUGUI countText;
+    // public GameObject winTextObject;
     
     private Rigidbody rb;
     private int count;
@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
         count = 0;
         rb = GetComponent<Rigidbody>();                             //just need to get once and store it for the script
         
-        SetCountText();
-        winTextObject.SetActive(false);
+        // SetCountText();
+        // winTextObject.SetActive(false);
     }
 
     //capture the input, store individual directions of movement
@@ -35,12 +35,12 @@ public class PlayerController : MonoBehaviour
     }
 
    
-    void SetCountText() {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 12) {
-            winTextObject.SetActive(true);
-        }
-    }
+    // void SetCountText() {
+    //     countText.text = "Count: " + count.ToString();
+    //     if (count >= 12) {
+    //         winTextObject.SetActive(true);
+    //     }
+    // }
     
     //move the ball
     void FixedUpdate() {
