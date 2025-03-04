@@ -34,16 +34,7 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
-    // void OnFire(InputValue fireValue) {
-    //     winTextObject.SetActive(true);
-    // }
-
-    void OnJump(InputValue inputValue) {
-        if (transform.position.y == 0.5f) {
-            movementZ = 20.0f;
-        }
-
-    }
+   
     void SetCountText() {
         countText.text = "Count: " + count.ToString();
         if (count >= 12) {
