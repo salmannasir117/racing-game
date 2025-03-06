@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Level2_Forest.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Level1_Beach.unity
+    guid: 42bcce7939e0b4af6a852a017146d939
+  - enabled: 0
+    path: Assets/Scenes/Level 1- Beach.unity
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Level3_Volcano.unity
+    guid: 4a888e582e11e46e084b430d1b8f6bb5
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: de9c87e37ab0d48ee91f038456935545
   m_configObjects: {}
