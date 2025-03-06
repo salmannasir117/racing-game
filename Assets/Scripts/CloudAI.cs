@@ -9,9 +9,10 @@ public class CloudAI : MonoBehaviour
     private NavMeshAgent agent;
     public GameObject[] waypoints;
     private int currWaypoint = -1;
-    public GameObject character; // Assign Character in Inspector
-    public float triggerHeight = 500f;
-    public float strikeDuration = 2f;
+    public GameObject character; 
+
+    public GameObject lightning;
+    public float strikeDuration = 0.5f;
 
     private bool isStriking = false;
     private Vector3 originalScale; 
@@ -37,14 +38,9 @@ public class CloudAI : MonoBehaviour
         // Move between waypoints
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
-            SetNextWaypoint();
-        }
-
-        // Check if character is vertically close
-        if (Time.time >= lastStrikeTime + strikeCooldown && horizontalDistance < 50f)
-        {
+            isStriking = false;
             StartCoroutine(StrikeLightning());
-            
+            SetNextWaypoint();
         }
     }
 
@@ -61,8 +57,10 @@ public class CloudAI : MonoBehaviour
 
     IEnumerator StrikeLightning()
     {
-        Debug.Log("Striking");
-        lastStrikeTime = Time.time;
+        if(isStriking){
+            Debug.Log("Striking");
+            lastStrikeTime = Time.time;
+        }
 
         // Store original scale and define stretched size
         Vector3 stretchedScale = new Vector3(originalScale.x, 500, originalScale.z); // Stretch downward
@@ -71,7 +69,7 @@ public class CloudAI : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < strikeDuration / 2)
         {
-            transform.localScale = Vector3.Lerp(originalScale, stretchedScale, elapsedTime / (strikeDuration / 2));
+            lightning.SetActive(true);
             transform.position = stretchedPosition;
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -80,10 +78,23 @@ public class CloudAI : MonoBehaviour
         elapsedTime = 0f;
         while (elapsedTime < strikeDuration / 2)
         {
-            transform.localScale = Vector3.Lerp(stretchedScale, originalScale, elapsedTime / (strikeDuration / 2));
+            lightning.SetActive(false);
             transform.position = stretchedPosition;
             elapsedTime += Time.deltaTime;
             yield return null;
+        }
+
+        isStriking = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+        // Check if the lightning collides with the character
+        if (lightning != null && other.gameObject == character && Time.time >= lastStrikeTime)
+        {
+            isStriking = true;
+            StartCoroutine(StrikeLightning()); 
         }
     }
 }
