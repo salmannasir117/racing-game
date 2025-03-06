@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void Update(){
         // Toggle pause menu with Escape key
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.K))
         {
             winPanel.SetActive(true);
             losePanel.SetActive(false);
