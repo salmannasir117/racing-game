@@ -70,6 +70,7 @@ public class CloudAI : MonoBehaviour
         while (elapsedTime < strikeDuration / 2)
         {
             lightning.SetActive(true);
+            lightning.transform.position = transform.position;
             transform.position = stretchedPosition;
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -79,6 +80,7 @@ public class CloudAI : MonoBehaviour
         while (elapsedTime < strikeDuration / 2)
         {
             lightning.SetActive(false);
+            lightning.transform.position = transform.position;
             transform.position = stretchedPosition;
             elapsedTime += Time.deltaTime;
             yield return null;
