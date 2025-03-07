@@ -8,12 +8,14 @@ public class CheckpointCounter : MonoBehaviour
     public static GameObject[] checkpoints;
     public static int currentCheckpoint = 0;
     private bool finished = false; 
-    public GameObject winTextObject;
+    // public GameObject winTextObject;
+    public GameObject winPanel;
     // Start is called before the first frame update
     void Start()
     {
         checkpoints = userFacingCheckpoints;
-        winTextObject.SetActive(false);
+        // winTextObject.SetActive(false);
+        winPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,7 +46,8 @@ public class CheckpointCounter : MonoBehaviour
             if (currentCheckpoint == 0) {
                 Debug.Log("hit all checkpoints");
                 finished = true;
-                winTextObject.SetActive(true);
+                // winTextObject.SetActive(true);
+                winPanel.SetActive(true);
                 Time.timeScale = 0.50f;
                 //set next level buttons active here
             }
