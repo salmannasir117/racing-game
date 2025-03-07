@@ -6,18 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level2_Forest.unity
+    path: Assets/Scenes/checkpoint.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Level1_Beach.unity
+  - enabled: 0
+    path: Assets/Scenes/NotInUse/Level1_Beach.unity
     guid: 42bcce7939e0b4af6a852a017146d939
   - enabled: 0
     path: Assets/Scenes/Level 1- Beach.unity
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Level3_Volcano.unity
+  - enabled: 0
+    path: Assets/Scenes/NotInUse/Level3_Volcano.unity
     guid: 4a888e582e11e46e084b430d1b8f6bb5
-  - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
+  - enabled: 0
+    path: Assets/Scenes/NotInUse/StartMenu.unity
     guid: de9c87e37ab0d48ee91f038456935545
+  - enabled: 1
+    path: Assets/Scenes/ForestMap.unity
+    guid: d5d795baa49444dbba328760431561bd
+  - enabled: 1
+    path: Assets/Scenes/BeachScene.unity
+    guid: 4404e3abdd5ef45e3a91943f074c331a
+  - enabled: 1
+    path: Assets/Scenes/VolcanoScene.unity
+    guid: 95b12969366be63438ff801a7802cd14
   m_configObjects: {}
