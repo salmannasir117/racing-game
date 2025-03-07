@@ -36,22 +36,21 @@ public class GameManager : MonoBehaviour
         
         }
 
-        SceneManager.LoadScene("Level1_Beach");
+        SceneManager.LoadScene("BeachScene");
     }
 
     public void Update(){
-        // Toggle pause menu with Escape key
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            winPanel.SetActive(true);
-            losePanel.SetActive(false);
-        }
+        // if (Input.GetKeyUp(KeyCode.K))
+        // {
+        //     winPanel.SetActive(true);
+        //     losePanel.SetActive(false);
+        // }
 
-        if (Input.GetKeyUp(KeyCode.L)) 
-        {
-            losePanel.SetActive(true);
-            winPanel.SetActive(false);
-        }
+        // if (Input.GetKeyUp(KeyCode.L)) 
+        // {
+        //     losePanel.SetActive(true);
+        //     winPanel.SetActive(false);
+        // }
     }
 
     public void ChooseNewLevel()
@@ -62,16 +61,16 @@ public class GameManager : MonoBehaviour
 
     public void SelectLevel1()
     {
-        SceneManager.LoadScene("Level1_Beach");
+        SceneManager.LoadScene("BeachScene");
     }
 
     public void SelectLevel2()
     {
-        SceneManager.LoadScene("Level2_Forest");
+        SceneManager.LoadScene("ForestMap");
     }
 
     public void SelectLevel3()
     {
-        SceneManager.LoadScene("Level3_Volcano");
+        SceneManager.LoadScene("VolcanoScene");
     }
 }
