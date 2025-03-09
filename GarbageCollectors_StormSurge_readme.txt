@@ -78,5 +78,6 @@ Manifest of Assets/Scripts:
             - Made an in-depth plan for the future implementation of powerup & negatively charged objects
         - Assets implemented/found
             - found asset packs for beach and forest scene
-        - Scripts 
-            - 
+            - found asset packs for collectibles
+            - SampleScene.unity (branch: kayla-collectibles)
+            - ProjectSettings Assets
