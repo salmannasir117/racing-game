@@ -6275,6 +6275,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238394179}
   m_Mesh: {fileID: 1810314016}
+--- !u!1 &241279069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5654683612934034789, guid: b3d46086c98a54be981ec18f4625136e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1019670060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &250279660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59983,7 +59989,7 @@ MonoBehaviour:
   - {fileID: 1645527394}
   - {fileID: 407361710}
   - {fileID: 2124665122}
-  character: {fileID: 177024768}
+  character: {fileID: 241279069}
   lightning: {fileID: 1501624741}
   strikeDuration: 2
   strikeCooldown: 10
