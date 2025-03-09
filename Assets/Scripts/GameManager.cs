@@ -61,16 +61,19 @@ public class GameManager : MonoBehaviour
 
     public void SelectLevel1()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("BeachScene");
     }
 
     public void SelectLevel2()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("ForestMap");
     }
 
     public void SelectLevel3()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("VolcanoScene");
     }
 }
