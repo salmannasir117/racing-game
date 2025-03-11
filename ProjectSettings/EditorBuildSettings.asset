@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/GameStartScene.unity
+    guid: 89f513da8168c40ffbbd46598d414401
+  - enabled: 1
+    path: Assets/Scenes/ForestMap.unity
+    guid: d5d795baa49444dbba328760431561bd
+  - enabled: 1
+    path: Assets/Scenes/BeachScene.unity
+    guid: 4404e3abdd5ef45e3a91943f074c331a
+  - enabled: 1
+    path: Assets/Scenes/VolcanoScene.unity
+    guid: 95b12969366be63438ff801a7802cd14
   m_configObjects: {}
