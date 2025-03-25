@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenuToggle : MonoBehaviour
 {
     public GameObject pausePanel;
+    public Timer timer;
     private bool isPaused = false;
 
     void Start()
@@ -38,6 +39,7 @@ public class PauseMenuToggle : MonoBehaviour
         isPaused = true;
         pausePanel.SetActive(true);
         Time.timeScale = 0f; // Pause the game
+        timer.deactivate();
     }
 
     public void ResumeGame()
@@ -45,6 +47,7 @@ public class PauseMenuToggle : MonoBehaviour
         isPaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1f; // Resume the game
+        timer.activate();
     }
 
     public void RestartLevel(string sceneName)

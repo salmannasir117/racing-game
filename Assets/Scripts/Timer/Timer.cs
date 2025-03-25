@@ -9,10 +9,13 @@ using UnityEngine;
 
     Notes:
         - Timer needs to be deactivated when pause menu is active.
-        - timer needs to be activated when pause menu is deactivated.
+        - Timer needs to be activated when pause menu is deactivated.
+        - Timer needs to be deactivated when win screen is active.
         - Timer needs to be reset after each level
-            - is this free? i think so.
+            - is this free? i think so. update: testing shows this is the case!
         - Timer, when depleted, needs to display lose screen. Lose screen needs to let player restart game/level.
+
+        - Timer needs to be wired to the pause and lose screens and the checkpointCounter script .
 */
 public class Timer : MonoBehaviour
 {

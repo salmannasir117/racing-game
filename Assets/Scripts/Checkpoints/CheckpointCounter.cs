@@ -10,6 +10,7 @@ public class CheckpointCounter : MonoBehaviour
     private bool finished = false; 
     // public GameObject winTextObject;
     public GameObject winPanel;
+    public Timer timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,7 @@ public class CheckpointCounter : MonoBehaviour
                 // winTextObject.SetActive(true);
                 winPanel.SetActive(true);
                 Time.timeScale = 0.50f;
+                timer.deactivate();
                 //set next level buttons active here
             }
         }
