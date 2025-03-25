@@ -71,6 +71,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("VolcanoScene");
     }
 
+    /* 
+        for testing purposes. test that the timer resets on lose condition and restart level.
+        used in scene Scenes/Timer/Beach Timer Test
+    */
+    public void TimerTestSelectLevel1() {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Beach Timer Test");
+    }
+        
     public void tutPanelController() {
         if (tutPanel != null) {
             tutPanel.SetActive(true);
