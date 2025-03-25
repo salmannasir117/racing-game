@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject levelPanel;
     public GameObject winPanel;
     public GameObject losePanel;
+    public GameObject tutPanel;
 
     void Start()
     {
@@ -24,6 +25,9 @@ public class GameManager : MonoBehaviour
 
         if (losePanel != null)
             losePanel.SetActive(false);
+
+        if (tutPanel != null)
+            tutPanel.SetActive(false);
     }
 
     public void StartNewGame()
@@ -40,17 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Update(){
-        // if (Input.GetKeyUp(KeyCode.K))
-        // {
-        //     winPanel.SetActive(true);
-        //     losePanel.SetActive(false);
-        // }
-
-        // if (Input.GetKeyUp(KeyCode.L)) 
-        // {
-        //     losePanel.SetActive(true);
-        //     winPanel.SetActive(false);
-        // }
+        
     }
 
     public void ChooseNewLevel()
@@ -75,5 +69,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("VolcanoScene");
+    }
+
+    public void tutPanelController() {
+        if (tutPanel != null) {
+            tutPanel.SetActive(true);
+            startPanel.SetActive(false);
+        }
     }
 }
