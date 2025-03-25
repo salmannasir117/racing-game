@@ -6,7 +6,7 @@ public class CheckpointCounter : MonoBehaviour
 {
     public GameObject[] userFacingCheckpoints;
     public static GameObject[] checkpoints;
-    public static int currentCheckpoint = 0;
+    public static int currentCheckpoint;
     private bool finished = false; 
     // public GameObject winTextObject;
     public GameObject winPanel;
@@ -14,6 +14,7 @@ public class CheckpointCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentCheckpoint = 0;
         checkpoints = userFacingCheckpoints;
         // winTextObject.SetActive(false);
         winPanel.SetActive(false);
