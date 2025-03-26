@@ -18,6 +18,7 @@ public class CloudAI : MonoBehaviour
     private Vector3 originalScale; 
     private float lastStrikeTime = -10f; 
     public float strikeCooldown = 10f;
+    public AudioSource lightningAudio;
 
     void Start()
     {
@@ -67,6 +68,8 @@ public class CloudAI : MonoBehaviour
         Vector3 stretchedPosition = transform.position;
 
         float elapsedTime = 0f;
+        lightningAudio.volume = isStriking ? 1f : 0.1f;
+        lightningAudio.Play();
         while (elapsedTime < strikeDuration / 2)
         {
             lightning.SetActive(true);

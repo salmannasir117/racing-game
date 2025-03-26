@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed;
     private Vector3 forwardDirection;
 
+    public AudioSource runningAudioSource;
+    public AudioClip runningSound;
+    
+
     //private Vector3 velocity;
 
     // Start is called before the first frame update
@@ -28,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
         moveAction = playerInput.actions.FindAction("Move");
 
         forwardDirection = getForwardDirection();
+        if (runningAudioSource != null && runningSound != null)
+        {
+            runningAudioSource.clip = runningSound;
+            runningAudioSource.loop = true;
+        }
     }
 
     // Update is called once per frame
@@ -65,6 +74,18 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("horizontal", direction.x, 1f, Time.deltaTime * 10f);
         anim.SetFloat("vertical", direction.y, 1f, Time.deltaTime * 10f);
 
+        bool isMovingForward = direction.y > 0;
+
+        if (isMovingForward)
+        {
+            if (!runningAudioSource.isPlaying)
+                runningAudioSource.Play();
+        }
+        else
+        {
+            if (runningAudioSource.isPlaying)
+                runningAudioSource.Stop();
+        }
         //anim.SetBool("isGrounded", isGrounded());
     }
 
