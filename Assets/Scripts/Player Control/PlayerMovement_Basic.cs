@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement_Basic : MonoBehaviour
 {
     PlayerInput playerInput;
     InputAction moveAction;
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         moveAction = playerInput.actions.FindAction("Move");
 
         forwardDirection = getForwardDirection();
+
         if (runningAudioSource != null && runningSound != null)
         {
             runningAudioSource.clip = runningSound;
