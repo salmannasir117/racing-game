@@ -23,8 +23,8 @@ public class SlowDownPowerUp : MonoBehaviour
         originalRotationSpeed = player.GetComponent<PlayerMovement>().rotationSpeed;
 
         //set new speed values for when powerup is active
-        newMoveSpeed = originalMoveSpeed * 2.0f;
-        newRotationSpeed = originalRotationSpeed * 2.0f;
+        newMoveSpeed = originalMoveSpeed * 0.5f;
+        newRotationSpeed = originalRotationSpeed * 0.5f;
     }
 
     // Update is called once per frame
