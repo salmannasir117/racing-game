@@ -19,8 +19,8 @@ public class SpeedUpPowerUp : MonoBehaviour
         powerupActive = false;
 
         //store the original speed values
-        originalMoveSpeed = player.GetComponent<PlayerMovement>().moveSpeed;
-        originalRotationSpeed = player.GetComponent<PlayerMovement>().rotationSpeed;
+        originalMoveSpeed = player.GetComponent<PlayerMovement_Comp>().moveSpeed;
+        originalRotationSpeed = player.GetComponent<PlayerMovement_Comp>().rotationSpeed;
 
         //set new speed values for when powerup is active
         newMoveSpeed = originalMoveSpeed * 3.0f;
@@ -62,8 +62,8 @@ public class SpeedUpPowerUp : MonoBehaviour
     */
     void activatePowerup() {
         powerupActive = true;
-        player.GetComponent<PlayerMovement>().moveSpeed = newMoveSpeed;
-        player.GetComponent<PlayerMovement>().rotationSpeed = newRotationSpeed;
+        player.GetComponent<PlayerMovement_Comp>().moveSpeed = newMoveSpeed;
+        player.GetComponent<PlayerMovement_Comp>().rotationSpeed = newRotationSpeed;
         GetComponent<MeshRenderer>().enabled = false;
     }
 
@@ -75,8 +75,8 @@ public class SpeedUpPowerUp : MonoBehaviour
     */
     void deactivatePowerup() {
         powerupActive = false;
-        player.GetComponent<PlayerMovement>().moveSpeed = originalMoveSpeed;
-        player.GetComponent<PlayerMovement>().rotationSpeed = originalRotationSpeed;
+        player.GetComponent<PlayerMovement_Comp>().moveSpeed = originalMoveSpeed;
+        player.GetComponent<PlayerMovement_Comp>().rotationSpeed = originalRotationSpeed;
         Destroy(gameObject);
 
     }
