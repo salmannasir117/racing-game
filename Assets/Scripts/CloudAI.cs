@@ -11,7 +11,8 @@ public class CloudAI : MonoBehaviour
     private int currWaypoint = -1;
     public GameObject character; 
 
-    public GameObject lightning;
+    public GameObject yellowLightning;
+    public GameObject redLightning;
     public float strikeDuration = 0.5f;
 
     private bool isStriking = false;
@@ -134,7 +135,11 @@ void CheckTransitions()
 
         Debug.Log("Striking");
         lastStrikeTime = Time.time;
-        isStriking = false;
+
+        GameObject lightning = yellowLightning;
+        if(isStriking){
+            lightning = redLightning;
+        }
 
         lightningAudio.volume = wasChasing ? 1f : 0.1f;
         lightningAudio.Play();
@@ -161,6 +166,7 @@ void CheckTransitions()
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        isStriking = false;
     }
 
 
@@ -168,7 +174,7 @@ void CheckTransitions()
     {
         
         // Check if the lightning collides with the character
-        if (lightning != null && other.gameObject == character && Time.time >= lastStrikeTime)
+        if (redLightning != null && other.gameObject == character && Time.time >= lastStrikeTime)
         {
             isStriking = true;
             StartCoroutine(StrikeLightning()); 
