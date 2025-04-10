@@ -20,6 +20,10 @@ public class CloudAI : MonoBehaviour
     public float strikeCooldown = 10f;
     public AudioSource lightningAudio;
 
+    private enum AIState { Idle, Patrol, Chase }
+    private AIState currentState = AIState.Patrol;
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -27,6 +31,27 @@ public class CloudAI : MonoBehaviour
         SetNextWaypoint();
     }
 
+    void Update()
+    {
+        switch (currentState)
+        {
+            case AIState.Idle:
+                // Do nothing or wait
+                break;
+
+            case AIState.Patrol:
+                PatrolBehavior();
+                break;
+
+            case AIState.Chase:
+                ChaseBehavior();
+                break;
+        }
+
+        CheckTransitions(); // Determine when to switch states
+    }
+
+    /*
     void Update()
     {
         float horizontalDistance = Vector3.Distance(
@@ -44,6 +69,54 @@ public class CloudAI : MonoBehaviour
             SetNextWaypoint();
         }
     }
+    */
+
+    void PatrolBehavior()
+{
+    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+    {
+        isStriking = false;
+        StartCoroutine(StrikeLightning());
+        SetNextWaypoint();
+    }
+}
+
+void ChaseBehavior()
+{
+    if (character != null)
+    {
+        Vector3 chaseTarget = character.transform.position;
+        chaseTarget.y = transform.position.y; // Keep cloud floating
+        agent.SetDestination(chaseTarget);
+    }
+}
+
+void CheckTransitions()
+{
+    float horizontalDistance = Vector3.Distance(
+        new Vector3(transform.position.x, 0, transform.position.z),
+        new Vector3(character.transform.position.x, 0, character.transform.position.z)
+    );
+
+    switch (currentState)
+    {
+        case AIState.Idle:
+            if (horizontalDistance > 50f)
+                currentState = AIState.Patrol;
+            break;
+
+        case AIState.Patrol:
+            if (horizontalDistance < 20f)
+                currentState = AIState.Chase;
+            break;
+
+        case AIState.Chase:
+            if (horizontalDistance > 50f)
+                currentState = AIState.Patrol;
+            break;
+    }
+}
+
 
     void SetNextWaypoint()
     {
@@ -52,24 +125,24 @@ public class CloudAI : MonoBehaviour
         Vector3 targetPos = waypoints[currWaypoint].transform.position;
         targetPos.y = transform.position.y;
         agent.SetDestination(targetPos);
-
-
     }
 
     IEnumerator StrikeLightning()
     {
-        if(isStriking){
-            Debug.Log("Striking");
-            lastStrikeTime = Time.time;
-        }
+        // Set context for volume
+        bool wasChasing = isStriking; // Capture reason before resetting it
 
-        // Store original scale and define stretched size
-        Vector3 stretchedScale = new Vector3(originalScale.x, 500, originalScale.z); // Stretch downward
+        Debug.Log("Striking");
+        lastStrikeTime = Time.time;
+        isStriking = false;
+
+        lightningAudio.volume = wasChasing ? 1f : 0.1f;
+        lightningAudio.Play();
+
+        Vector3 stretchedScale = new Vector3(originalScale.x, 500, originalScale.z);
         Vector3 stretchedPosition = transform.position;
 
         float elapsedTime = 0f;
-        lightningAudio.volume = isStriking ? 1f : 0.1f;
-        lightningAudio.Play();
         while (elapsedTime < strikeDuration / 2)
         {
             lightning.SetActive(true);
@@ -78,7 +151,7 @@ public class CloudAI : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        // Shrink back
+
         elapsedTime = 0f;
         while (elapsedTime < strikeDuration / 2)
         {
@@ -88,9 +161,8 @@ public class CloudAI : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
-        isStriking = false;
     }
+
 
     void OnTriggerEnter(Collider other)
     {
