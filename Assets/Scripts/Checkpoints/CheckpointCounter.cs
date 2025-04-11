@@ -12,6 +12,11 @@ public class CheckpointCounter : MonoBehaviour
     public GameObject winPanel;
     public Timer timer;
     // Start is called before the first frame update
+
+    //Audio to play once entering correct checkpoint
+    public AudioSource correctSoundAudioSource;
+    //Audio to play once entering wrong checkpoint
+    public AudioSource warningSoundAudioSource;
     void Start()
     {
         currentCheckpoint = 0;
@@ -44,6 +49,13 @@ public class CheckpointCounter : MonoBehaviour
             Debug.Log("hit correct checkpoint number " + currentCheckpoint);
             currentCheckpoint = (currentCheckpoint + 1) % checkpoints.Length;
             
+            //play happy 'ding' noise - correct checkpoint crossed
+            if (correctSoundAudioSource == null) {
+                Debug.Log("Correct Checkpoint Sound Not Set.");
+            } else {
+                correctSoundAudioSource.Play();
+            }
+
             //if we loop back to 0, we are finished.
             if (currentCheckpoint == 0) {
                 Debug.Log("hit all checkpoints");
@@ -53,6 +65,13 @@ public class CheckpointCounter : MonoBehaviour
                 Time.timeScale = 0.50f;
                 timer.deactivate();
                 //set next level buttons active here
+            }
+        } else if (other.gameObject.tag == "checkpoint") {
+            //we have hit a checkpoint that is the incorrect one - play unhappy 'error' noise
+            if (warningSoundAudioSource == null) {
+                Debug.Log("Wrong Checkpoint Warning Sound Not Set.");
+            } else {
+                warningSoundAudioSource.Play();
             }
         }
     }
