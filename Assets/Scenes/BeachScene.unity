@@ -438,12 +438,12 @@ PrefabInstance:
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -60.5
+      value: -74.3
       objectReference: {fileID: 0}
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.3
+      value: -14.2
       objectReference: {fileID: 0}
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
@@ -2155,7 +2155,7 @@ PrefabInstance:
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -204.9
+      value: -211.5
       objectReference: {fileID: 0}
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
@@ -2165,7 +2165,7 @@ PrefabInstance:
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 131.5
+      value: 138
       objectReference: {fileID: 0}
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
@@ -4439,13 +4439,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eb2afa87294086e4eb4afed19046c7dc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.066
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 213
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5886,7 +5886,7 @@ PrefabInstance:
     - target: {fileID: 4911851540165916747, guid: e2d72a90f47f24eb99fea85f335743c0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.32948
+      value: -56.7
       objectReference: {fileID: 0}
     - target: {fileID: 4911851540165916747, guid: e2d72a90f47f24eb99fea85f335743c0,
         type: 3}
@@ -7039,7 +7039,7 @@ PrefabInstance:
     - target: {fileID: 4911851540165916747, guid: 3a4ea49d4654e4ea0ba4a1c6e89ecd19,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.024605
+      value: 35.7
       objectReference: {fileID: 0}
     - target: {fileID: 4911851540165916747, guid: 3a4ea49d4654e4ea0ba4a1c6e89ecd19,
         type: 3}
@@ -8313,7 +8313,7 @@ PrefabInstance:
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -106.043274
+      value: -119.8
       objectReference: {fileID: 0}
     - target: {fileID: 4911851540165916747, guid: 967dc3214c7f641ab9b49e06132d3b2f,
         type: 3}
@@ -8496,7 +8496,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 25
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
