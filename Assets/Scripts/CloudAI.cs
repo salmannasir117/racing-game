@@ -13,7 +13,7 @@ public class CloudAI : MonoBehaviour
 
     public GameObject yellowLightning;
     public GameObject redLightning;
-    public float strikeDuration = 0.5f;
+    public float strikeDuration = 0.1f;
 
     private bool isStriking = false;
     private Vector3 originalScale; 
@@ -131,17 +131,16 @@ void CheckTransitions()
     IEnumerator StrikeLightning()
     {
         // Set context for volume
-        bool wasChasing = isStriking; // Capture reason before resetting it
 
         Debug.Log("Striking");
-        lastStrikeTime = Time.time;
-
+        
         GameObject lightning = yellowLightning;
         if(isStriking){
             lightning = redLightning;
+            lastStrikeTime = Time.time;
         }
 
-        lightningAudio.volume = wasChasing ? 1f : 0.1f;
+        lightningAudio.volume = isStriking ? 1f : 0.1f;
         lightningAudio.Play();
 
         Vector3 stretchedScale = new Vector3(originalScale.x, 500, originalScale.z);
