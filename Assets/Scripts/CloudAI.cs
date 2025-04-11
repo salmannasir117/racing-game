@@ -11,14 +11,19 @@ public class CloudAI : MonoBehaviour
     private int currWaypoint = -1;
     public GameObject character; 
 
-    public GameObject lightning;
-    public float strikeDuration = 0.5f;
+    public GameObject yellowLightning;
+    public GameObject redLightning;
+    public float strikeDuration = 0.1f;
 
     private bool isStriking = false;
     private Vector3 originalScale; 
     private float lastStrikeTime = -10f; 
     public float strikeCooldown = 10f;
     public AudioSource lightningAudio;
+
+    private enum AIState { Idle, Patrol, Chase }
+    private AIState currentState = AIState.Patrol;
+
 
     void Start()
     {
@@ -27,6 +32,27 @@ public class CloudAI : MonoBehaviour
         SetNextWaypoint();
     }
 
+    void Update()
+    {
+        switch (currentState)
+        {
+            case AIState.Idle:
+                // Do nothing or wait
+                break;
+
+            case AIState.Patrol:
+                PatrolBehavior();
+                break;
+
+            case AIState.Chase:
+                ChaseBehavior();
+                break;
+        }
+
+        CheckTransitions(); // Determine when to switch states
+    }
+
+    /*
     void Update()
     {
         float horizontalDistance = Vector3.Distance(
@@ -44,6 +70,54 @@ public class CloudAI : MonoBehaviour
             SetNextWaypoint();
         }
     }
+    */
+
+    void PatrolBehavior()
+{
+    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+    {
+        isStriking = false;
+        StartCoroutine(StrikeLightning());
+        SetNextWaypoint();
+    }
+}
+
+void ChaseBehavior()
+{
+    if (character != null)
+    {
+        Vector3 chaseTarget = character.transform.position;
+        chaseTarget.y = transform.position.y; // Keep cloud floating
+        agent.SetDestination(chaseTarget);
+    }
+}
+
+void CheckTransitions()
+{
+    float horizontalDistance = Vector3.Distance(
+        new Vector3(transform.position.x, 0, transform.position.z),
+        new Vector3(character.transform.position.x, 0, character.transform.position.z)
+    );
+
+    switch (currentState)
+    {
+        case AIState.Idle:
+            if (horizontalDistance > 50f)
+                currentState = AIState.Patrol;
+            break;
+
+        case AIState.Patrol:
+            if (horizontalDistance < 20f)
+                currentState = AIState.Chase;
+            break;
+
+        case AIState.Chase:
+            if (horizontalDistance > 50f)
+                currentState = AIState.Patrol;
+            break;
+    }
+}
+
 
     void SetNextWaypoint()
     {
@@ -52,24 +126,27 @@ public class CloudAI : MonoBehaviour
         Vector3 targetPos = waypoints[currWaypoint].transform.position;
         targetPos.y = transform.position.y;
         agent.SetDestination(targetPos);
-
-
     }
 
     IEnumerator StrikeLightning()
     {
+        // Set context for volume
+
+        Debug.Log("Striking");
+        
+        GameObject lightning = yellowLightning;
         if(isStriking){
-            Debug.Log("Striking");
+            lightning = redLightning;
             lastStrikeTime = Time.time;
         }
 
-        // Store original scale and define stretched size
-        Vector3 stretchedScale = new Vector3(originalScale.x, 500, originalScale.z); // Stretch downward
+        lightningAudio.volume = isStriking ? 1f : 0.1f;
+        lightningAudio.Play();
+
+        Vector3 stretchedScale = new Vector3(originalScale.x, 500, originalScale.z);
         Vector3 stretchedPosition = transform.position;
 
         float elapsedTime = 0f;
-        lightningAudio.volume = isStriking ? 1f : 0.1f;
-        lightningAudio.Play();
         while (elapsedTime < strikeDuration / 2)
         {
             lightning.SetActive(true);
@@ -78,7 +155,7 @@ public class CloudAI : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        // Shrink back
+
         elapsedTime = 0f;
         while (elapsedTime < strikeDuration / 2)
         {
@@ -88,15 +165,15 @@ public class CloudAI : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
         isStriking = false;
     }
+
 
     void OnTriggerEnter(Collider other)
     {
         
         // Check if the lightning collides with the character
-        if (lightning != null && other.gameObject == character && Time.time >= lastStrikeTime)
+        if (redLightning != null && other.gameObject == character && Time.time >= lastStrikeTime)
         {
             isStriking = true;
             StartCoroutine(StrikeLightning()); 
