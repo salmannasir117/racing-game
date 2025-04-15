@@ -26435,7 +26435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8310611c017049d88cb03e4415e0e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 0}
+  pausePanel: {fileID: 810818745}
   startPanel: {fileID: 0}
   timer: {fileID: 780192592}
 --- !u!225 &691443558
@@ -36347,7 +36347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &810818746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39010,6 +39010,7 @@ MonoBehaviour:
   winPanel: {fileID: 96725844}
   losePanel: {fileID: 1994376396}
   tutPanel: {fileID: 0}
+  creditPanel: {fileID: 0}
 --- !u!114 &949434388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50436,6 +50437,7 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   losePanel: {fileID: 0}
   tutPanel: {fileID: 0}
+  creditPanel: {fileID: 0}
 --- !u!4 &1339968483
 Transform:
   m_ObjectHideFlags: 0

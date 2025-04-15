@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject losePanel;
     public GameObject tutPanel;
+    public GameObject creditPanel;
 
     void Start()
     {
@@ -28,6 +29,9 @@ public class GameManager : MonoBehaviour
 
         if (tutPanel != null)
             tutPanel.SetActive(false);
+            
+        if (creditPanel != null)
+            creditPanel.SetActive(false);
     }
 
     public void StartNewGame()
@@ -99,5 +103,11 @@ public class GameManager : MonoBehaviour
         startPanel.SetActive(true);
         levelPanel.SetActive(false);
         tutPanel.SetActive(false);
+        creditPanel.SetActive(false);
+    }
+
+    public void ShowCredits() {
+        creditPanel.SetActive(true);
+        startPanel.SetActive(false);
     }
 }

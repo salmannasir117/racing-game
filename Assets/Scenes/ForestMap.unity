@@ -1710,6 +1710,7 @@ MonoBehaviour:
   winPanel: {fileID: 747217132}
   losePanel: {fileID: 1962552356}
   tutPanel: {fileID: 0}
+  creditPanel: {fileID: 0}
 --- !u!224 &108210225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10431,6 +10432,7 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   losePanel: {fileID: 0}
   tutPanel: {fileID: 0}
+  creditPanel: {fileID: 0}
 --- !u!4 &633184897
 Transform:
   m_ObjectHideFlags: 0
@@ -36760,7 +36762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8310611c017049d88cb03e4415e0e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 0}
+  pausePanel: {fileID: 2038422710}
   startPanel: {fileID: 0}
   timer: {fileID: 908840036}
 --- !u!225 &2041687398
