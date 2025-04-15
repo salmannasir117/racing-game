@@ -13,6 +13,7 @@ public class ShortBurstPowerup : MonoBehaviour
     //store original move/rotation speed to reset it after powerup over.
     //calculate new speeds to for when powerup is active.
     private float originalMoveSpeed, originalRotationSpeed, newMoveSpeed, newRotationSpeed;
+    public AudioSource shortBurst_audio;
     void Start()
     {
         //powerup is not active initially
@@ -62,6 +63,7 @@ public class ShortBurstPowerup : MonoBehaviour
     */
     void activatePowerup() {
         powerupActive = true;
+        shortBurst_audio.Play();
         player.GetComponent<PlayerMovement_Comp>().moveSpeed = newMoveSpeed;
         player.GetComponent<PlayerMovement_Comp>().rotationSpeed = newRotationSpeed;
         GetComponent<MeshRenderer>().enabled = false;
