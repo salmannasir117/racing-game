@@ -86,4 +86,18 @@ public class GameManager : MonoBehaviour
             startPanel.SetActive(false);
         }
     }
+
+    public void QuitGame()
+    {
+        Time.timeScale = 1f; // Resume before quitting
+        Application.Quit();
+    }
+
+    public void BackToStart()
+    {
+        Time.timeScale = 1f;
+        startPanel.SetActive(true);
+        levelPanel.SetActive(false);
+        tutPanel.SetActive(false);
+    }
 }
