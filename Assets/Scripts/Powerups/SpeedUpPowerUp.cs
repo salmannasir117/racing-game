@@ -7,7 +7,7 @@ public class SpeedUpPowerUp : MonoBehaviour
     //set to Player Character gameobject in inspector
     public GameObject player;
     //how long powerup lasts
-    public float powerupDuration = 5.0f;
+    public float powerupDuration = 3.0f;
     //store if powerup is active
     private bool powerupActive;
     //store original move/rotation speed to reset it after powerup over.
@@ -24,8 +24,8 @@ public class SpeedUpPowerUp : MonoBehaviour
         originalRotationSpeed = player.GetComponent<PlayerMovement_Comp>().rotationSpeed;
 
         //set new speed values for when powerup is active
-        newMoveSpeed = originalMoveSpeed * 3.0f;
-        newRotationSpeed = originalRotationSpeed * 2.0f;
+        newMoveSpeed = originalMoveSpeed * 1.9f;
+        newRotationSpeed = originalRotationSpeed * 1.7f;
     }
 
     // Update is called once per frame
