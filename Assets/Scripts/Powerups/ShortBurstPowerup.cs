@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedUpPowerUp : MonoBehaviour
+public class ShortBurstPowerup : MonoBehaviour
 {
     //set to Player Character gameobject in inspector
     public GameObject player;
     //how long powerup lasts
-    public float powerupDuration = 3.0f;
+    public float powerupDuration = 1.5f;
     //store if powerup is active
     private bool powerupActive;
     //store original move/rotation speed to reset it after powerup over.
@@ -23,7 +23,7 @@ public class SpeedUpPowerUp : MonoBehaviour
         originalRotationSpeed = player.GetComponent<PlayerMovement_Comp>().rotationSpeed;
 
         //set new speed values for when powerup is active
-        newMoveSpeed = originalMoveSpeed * 1.9f;
+        newMoveSpeed = originalMoveSpeed * 2.7f;
         newRotationSpeed = originalRotationSpeed * 1.7f;
     }
 
