@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: -2462834074070252981}
   - component: {fileID: -5831790976451716105}
   - component: {fileID: -821484738602668889}
-  - component: {fileID: 437127619725423617}
+  - component: {fileID: 6686876366805537838}
   m_Layer: 0
   m_Name: Kitty
   m_TagString: Untagged
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3db232165afc40ff989f1d6adbfb707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meowSound: {fileID: 0}
+  meowSound: {fileID: 8300000, guid: 3ad74665d63d445f898146f82cb05c83, type: 3}
 --- !u!136 &-2462834074070252981
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1001,7 +1001,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.2
   m_Speed: 100
-  m_Acceleration: 8
+  m_Acceleration: 25
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -1012,7 +1012,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &437127619725423617
+--- !u!82 &6686876366805537838
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
