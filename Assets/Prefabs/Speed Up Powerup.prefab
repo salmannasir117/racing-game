@@ -30,17 +30,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 05224ec7e4d85c14dbf345dd08810e67,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 320.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05224ec7e4d85c14dbf345dd08810e67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05224ec7e4d85c14dbf345dd08810e67,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 140.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05224ec7e4d85c14dbf345dd08810e67,
         type: 3}
@@ -122,29 +122,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   powerupDuration: 3
---- !u!114 &2735600021641358096
-MonoBehaviour:
+  speedUp_audio: {fileID: 0}
+--- !u!95 &6250734341464395356
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5720053521877508849}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 845c415f3181b4840ab566c40e714752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRotating: 1
-  rotateX: 0
-  rotateY: 1
-  rotateZ: 0
-  rotationSpeed: 85.67
-  isFloating: 1
-  useEasingForFloating: 1
-  floatHeight: 1.93
-  floatSpeed: 0.4
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 1.2, y: 1.2, z: 1.2}
-  isScaling: 1
-  useEasingForScaling: 1
-  scaleLerpSpeed: 1.11
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90bf1ca06c1fd4f15854578aaed94a94, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
