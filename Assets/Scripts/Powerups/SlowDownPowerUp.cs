@@ -13,6 +13,7 @@ public class SlowDownPowerUp : MonoBehaviour
     //store original move/rotation speed to reset it after powerup over.
     //calculate new speeds to for when powerup is active.
     private float originalMoveSpeed, originalRotationSpeed, newMoveSpeed, newRotationSpeed;
+    public AudioSource slow_audio;
     void Start()
     {
         //powerup is not active initially
@@ -62,6 +63,7 @@ public class SlowDownPowerUp : MonoBehaviour
     */
     void activatePowerup() {
         powerupActive = true;
+        slow_audio.Play();
         player.GetComponent<PlayerMovement_Comp>().moveSpeed = newMoveSpeed;
         player.GetComponent<PlayerMovement_Comp>().rotationSpeed = newRotationSpeed;
         GetComponent<MeshRenderer>().enabled = false;

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedUpPowerUp : MonoBehaviour
+public class ShortBurstPowerup : MonoBehaviour
 {
     //set to Player Character gameobject in inspector
     public GameObject player;
     //how long powerup lasts
-    public float powerupDuration = 3.0f;
+    public float powerupDuration = 1.5f;
     //store if powerup is active
     private bool powerupActive;
     //store original move/rotation speed to reset it after powerup over.
     //calculate new speeds to for when powerup is active.
     private float originalMoveSpeed, originalRotationSpeed, newMoveSpeed, newRotationSpeed;
-    public AudioSource speedUp_audio;
+    public AudioSource shortBurst_audio;
     void Start()
     {
         //powerup is not active initially
@@ -24,7 +24,7 @@ public class SpeedUpPowerUp : MonoBehaviour
         originalRotationSpeed = player.GetComponent<PlayerMovement_Comp>().rotationSpeed;
 
         //set new speed values for when powerup is active
-        newMoveSpeed = originalMoveSpeed * 1.9f;
+        newMoveSpeed = originalMoveSpeed * 2.7f;
         newRotationSpeed = originalRotationSpeed * 1.7f;
     }
 
@@ -63,7 +63,7 @@ public class SpeedUpPowerUp : MonoBehaviour
     */
     void activatePowerup() {
         powerupActive = true;
-        speedUp_audio.Play();
+        shortBurst_audio.Play();
         player.GetComponent<PlayerMovement_Comp>().moveSpeed = newMoveSpeed;
         player.GetComponent<PlayerMovement_Comp>().rotationSpeed = newRotationSpeed;
         GetComponent<MeshRenderer>().enabled = false;
