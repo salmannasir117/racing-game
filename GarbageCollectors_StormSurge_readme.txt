@@ -5,42 +5,55 @@ How to play the game:
     - WASD for movement of player
     - Move the player from checkpoint to checkpoint using the path as guidance.
     - Do NOT skip any checkpoints or you will not be able to progress to the next level.
+    - collect the cute cats at your own peril...
+        - (they serve no function other than to be cute and distract the player)
     
     - Click "esc" to open the pause menu
-        - You can then restart the level or exit the game
+        - You can then restart the level, exit the game, or return to the main menu
 
     - The game is over once you complete all three levels.
 
 To observe the AI: 
-    - This is implemented in the final level. There is an AI storm cloud that has a set patrol and a state in which it targets the player and attempts to obstruct their view with a lightning blast.
+    - One implementation is the cats on the beach and forest map. They are in an idle state until a player gets close enough to them. They will then follow the player.
+    - There is an AI storm cloud on the volcano map that has a set patrol and a state in which it targets the player. It adds to the ambiance of the map.
 
 Known problem areas: 
-    - In the final/volcano level, it is possible to fall out the map. We believe this to be a bug in our player movement system.
+    - No known problem areas. 
 
 Manifest of Assets/Scripts:
     - Sal
         - Contributions
-            - Designed Forest Map
-            - Designed checkpoint system with plugins for ui system and player
-            - Integrated checkpoint system into the levels
-            - Performed integration tests with player and checkpoint, ui, and ai system
-            - Performed bug patches on ui and ai system regarding project integration
+            - Designed Forest Map (enhanced with particle systems, fog, obstacles)
+            - Designed and integrated checkpoint system (enhanced with audio/visual feedback, checkered flag for finish line)
+            - Designed and integrated Timer/Objective text prefab 
+            - Designed basic speedup powerup functionality 
+            - Modifications to Beach Map (skybox, obstacles, decorations)
+            - Powerup placement on Forest and Beach Map
+            - Performed integration tests & bug patching with player and checkpoint, ui, and ai systems
             - Managed merge conflicts and GitHub repo
             - Scripted and performed Alpha video
+	        - Scripted and performed gameplay video
         - Assets implemented/found
-            - Forst Map Assets
+            - Forest Map Assets
             - ForestMap.unity
             - Checkpoint.prefab 
+	        - Timer UI.prefab
         - Scripts 
             - CheckpointCounter.cs
+	        - Timer.cs
+            - SpeedUpPowerUp.cs
+
 
     - Zamaria
         - Contributions
             - Designed the Beach Map
-            - Created UI elements (Start Menu, Pause Menu, Win/Lose States)
+            - Designed the Start Menu, Pause Menu, Win/Lose states 
             - Developed Code for the associated elements and integrated it into all Level maps
+            - Assessed various font assets to alter the text of the UI elements to better fit the game’s theme 
+            - Updated UI Elements to reflect the Alpha and playtest feedback
         - Assets implemented/found
             - Beach Map Assets
+            - JazzCreateBubble.tff (Font of Storm Surge title)
             - BeachScene.unity
             - GaneStartScene.unity
         - Scripts
@@ -50,10 +63,14 @@ Manifest of Assets/Scripts:
     - Vonte
         - Contributions
             - Created Project Storytelling Narrative
-            - Created Volcano Terrain Design
+            - Created Volcano Terrain Design/Map
             - Incorporated UV-based Material Design in Volcanic Terrain 
             - Developed AI-based tracking within Scene
             - Implemented Particle System Rain within Scene
+            - Created response audio for Player Movement 
+            - Curated individual Environment Sound playback for each level.
+            - Developed decorative AI Cloud feature that roams using waypoints. 
+            - Implement Lightning Strike onto volcanic terrain using programmatic C# timing
         - Assets implemented/found
             - Volcano Map Assets
             - VolcanoScene.unity
@@ -63,12 +80,20 @@ Manifest of Assets/Scripts:
     - Kevin
         - Contributions
             - Sourced models and animations for Player
-            - Scripted player control and movement
-            - Configured Mecanim animations to player movement with blend trees
+            - Configured player input and character movement
+            - Imported character model and animation, configured via Mecanim/Blend Trees
+            - Configured kitty movement, including multi-state AI that waits for the player to near, then runs around, somewhat following the player through the level
+            - Imported kitty model and animation, configured via Mecanim/Blend Trees
+            - Imported meow sound effect, set to play when player nears any kitty
         - Assets implemented/found
-            - Player Asset
+            - Player Character
+            - Kitty
+            - Meow sound effect
         - Scripts 
-            - PlayerMovement.cs
+            - PlayerMovement_Comp.cs
+            - KittenController.cs
+            - KittenSpawner.cs
+
 
     - Kayla
         - Contributions
