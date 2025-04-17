@@ -97,12 +97,22 @@ Manifest of Assets/Scripts:
 
     - Kayla
         - Contributions
-            - Sourced models for Beach & Forest maps
-            - Sourced models for various powerup objects
-            - Played around with powerup objects within a blank scene to work on “player” reactions to objects
-            - Made an in-depth plan for the future implementation of powerup & negatively charged objects
-        - Assets implemented/found
-            - found asset packs for beach and forest scene
-            - found asset packs for collectibles
-            - SampleScene.unity (branch: kayla-collectibles)
-            - ProjectSettings Assets
+            - Designed functionality and individual prefabs for the Short Burst, Slow Down, and Freeze Powerups
+            - Made modifications to the tutorial screen to include powerup descriptions
+            - Added various audios to be triggered upon the collection of any power-up item
+            - Edited speed up powerup to make changes to the degree of speedup after feedback from playtests
+            - Powerup placement on the Volcano map to place negative and positive powerups more strategically
+        - Assets Implemented / Found
+            - Short Burst Powerup.prefab
+            - Speed Up Powerup.prefab
+            - Slow Down Powerup.prefab
+            - Freeze Powerup.prefab
+            - Ice-Crack sound effect (Freeze Powerup)
+            - Rapid-Wind sound effect (Short Burst Powerup)
+            - Slow-Motion sound effect (Slow Down Powerup)
+            - Speed-Up sound effect (Speed Up Powerup)
+        Scripts
+            - ShortBurstPowerup.cs
+            - SlowDownPowerUp.cs
+            - FreezePowerUp.cs
+
